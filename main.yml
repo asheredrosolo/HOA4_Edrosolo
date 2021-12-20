@@ -1,0 +1,21 @@
+---
+- hosts: all
+  become: true
+  become_user: root
+  pre_tasks:
+
+  - name: update cache
+    package:
+      update_cache: yes
+
+- hosts: ubuntu
+  become: true
+  become_user: root
+  roles:
+    - ubuntu
+
+- hosts: centos
+  become: true
+  become_user: root
+  roles:
+    - centos
